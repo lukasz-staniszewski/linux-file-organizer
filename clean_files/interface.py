@@ -279,7 +279,7 @@ def perform_temp_files(path_X, paths_Y=[]):
     files = find_files.get_temp_files(path_X=path_X, paths_Y=paths_Y)
     is_said_all = False
     is_to_all = False
-    for file in files:
+    for ind, file in enumerate(files):
         print(
             f"\tChoose what to do with {file}:\n"
             + "\t1 -> REMOVE\n"
@@ -292,7 +292,9 @@ def perform_temp_files(path_X, paths_Y=[]):
             is_said_all = True
         if usr_input == 1:
             if is_to_all:
-                action_files.apply_all(action_files.remove_file, files)
+                action_files.apply_all(
+                    action_files.remove_file, files[ind:]
+                )
                 break
             else:
                 action_files.remove_file(file_path=file)
@@ -360,7 +362,7 @@ def perform_wrong_name(path_X, paths_Y=[]):
     )
     is_said_all = False
     is_to_all = False
-    for file in files:
+    for ind, file in enumerate(files):
         print(
             f"\tChoose what to do with {file}:\n"
             + "\t1 -> REMOVE\n"
@@ -374,7 +376,9 @@ def perform_wrong_name(path_X, paths_Y=[]):
             is_said_all = True
         if usr_input == 1:
             if is_to_all:
-                action_files.apply_all(action_files.remove_file, files)
+                action_files.apply_all(
+                    action_files.remove_file, files[ind:]
+                )
                 break
             else:
                 action_files.remove_file(file_path=file)
@@ -386,7 +390,7 @@ def perform_wrong_name(path_X, paths_Y=[]):
         elif usr_input == 3:
             if is_to_all:
                 action_files.apply_all(
-                    action_files.change_file_name, files
+                    action_files.change_file_name, files[ind:]
                 )
                 break
             action_files.change_file_name(file)

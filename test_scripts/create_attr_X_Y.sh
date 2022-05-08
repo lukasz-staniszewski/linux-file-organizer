@@ -20,3 +20,15 @@ chmod 000 ./X/X_1/third.cpp
 chmod 077 ./X/X_1/X_2/fourth.py
 chmod 111 ./X/X_1/fifth.sh
 chmod 644 ./X/X_1/X_2/sixth.java
+
+mkdir -p ./Y1/Y1_1/
+touch ./Y1/first.txt
+touch ./Y1/Y1_1/second.c
+chmod 555 ./Y1/first.txt
+chmod 777 ./Y1/Y1_1/second.c
+
+mkdir -p ./Y2/Y2_1/
+touch ./Y2/first.txt
+touch ./Y2/Y2_1/second.c
+chmod 555 ./Y2/first.txt
+chmod 777 ./Y2/Y2_1/second.c

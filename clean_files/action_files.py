@@ -70,9 +70,8 @@ def change_file_name(file_path, new_file_name=None):
         file_name, file_ext = path_of_file.stem, path_of_file.suffix
     sub_char = utils.get_config_params()["default_char"]
     for ch in utils.get_config_params()["dang_chars"]:
-        print(file_name + " " + ch)
-        file_name = re.sub(ch, sub_char, file_name)
-    print(file_name)
+        # file_name = re.sub(ch, sub_char, file_name)
+        file_name = str(file_name).replace(ch, sub_char)
     os.rename(
         file_path,
         os.path.join("./", path_of_file.parent, file_name + file_ext),

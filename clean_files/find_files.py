@@ -45,7 +45,7 @@ def get_temp_files(path_X, paths_Y=None):
     temp_files = []
     for file_path in files:
         for ext in wrong_ext:
-            if str.endswith(file_path, ext):
+            if str.endswith(str(file_path), ext):
                 temp_files.append(file_path)
                 break
     return temp_files
@@ -85,7 +85,9 @@ def get_wrong_permissions_files(path_X, paths_Y=None):
         for wrong_perm in wrong_perms:
             if (
                 oct(os.stat(file_path).st_mode)[-3:]
-                == oct(utils.to_mask(wrong_perm))[-3:]
+                == "00{}".format(
+                    oct(utils.to_mask(wrong_perm)).split("o")[-1]
+                )[-3:]
             ):
                 wrong_perm_files.append(file_path)
                 break
