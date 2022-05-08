@@ -1,0 +1,27 @@
+{
+    "default_char": "_",
+    "default_perm": "rw-r--r--",
+    "dang_chars": [
+        ":",
+        "\"",
+        ".",
+        ";",
+        "*",
+        "?",
+        "$",
+        "#",
+        "'",
+        "|",
+        "\\"
+    ],
+    "weird_perms": [
+        "rwxrwxrwx",
+        "---rwxrwx",
+        "--x--x--x",
+        "---------"
+    ],
+    "temp_ext": [
+        ".tmp",
+        "~"
+    ]
+}
